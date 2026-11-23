@@ -1,0 +1,43 @@
+# Frontend
+node_modules/
+dist/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Laravel environment
+backend/.env
+backend/.env.*
+!backend/.env.example
+
+# Dependencies
+backend/vendor/
+
+# Laravel runtime
+backend/storage/logs/*
+backend/storage/framework/cache/*
+backend/storage/framework/sessions/*
+backend/storage/framework/views/*
+backend/bootstrap/cache/*.php
+
+# Local database
+backend/database/*.sqlite
+backend/database/*.sqlite-*
+
+# Private keys
+*.pem
+*.key
+
+# IDE
+.vscode/
+.idea/
+
+# Operating system
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*

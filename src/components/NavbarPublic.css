@@ -1,0 +1,359 @@
+/* =========================================================
+   MAMRAS CLEAN - PUBLIC NAVBAR
+   Visual mengikuti Navbar pelanggan
+========================================================= */
+
+.mc-public-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 120;
+  width: 100%;
+  height: 76px;
+  min-height: 76px;
+  background: rgba(255, 255, 255, .97);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 3px 16px rgba(23, 59, 50, .035);
+}
+
+.mc-public-nav-inner {
+  width: min(100% - 48px, 1440px);
+  height: 100%;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.mc-public-brand {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 10px;
+  min-width: 0;
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.mc-public-brand .brand-logo {
+  width: 39px;
+  height: 39px;
+  flex: 0 0 39px;
+  object-fit: contain;
+}
+
+.mc-public-brand .brand-name {
+  color: var(--navy);
+  font-size: 16px;
+  font-weight: 850;
+  letter-spacing: .3px;
+  white-space: nowrap;
+}
+
+.mc-public-brand .brand-name strong {
+  color: var(--green);
+}
+
+.mc-public-brand .brand-name small {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.mc-public-nav-links {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-width: 0;
+}
+
+.mc-public-nav-links > a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 43px;
+  padding: 0 11px;
+  border-radius: 9px;
+  color: var(--muted);
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 650;
+  transition: background .2s ease, color .2s ease;
+}
+
+.mc-public-nav-links > a:hover,
+.mc-public-nav-links > a.active {
+  background: var(--tint-green);
+  color: var(--green);
+}
+
+.mc-public-nav-links > a.active {
+  font-weight: 800;
+}
+
+.mc-public-account-actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px;
+}
+
+.mc-public-account-actions .nav-login,
+.mc-public-account-actions .nav-register {
+  min-height: 41px;
+  padding: 0 15px;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.mc-public-account-actions .mc-account-button {
+  min-height: 42px;
+  padding: 4px 11px 4px 4px;
+  border-color: var(--border);
+  border-radius: 30px;
+  background: var(--white);
+  color: var(--body);
+  font-size: 12px;
+  font-weight: 700;
+  transition: border-color .2s, background .2s;
+}
+
+.mc-public-account-actions .mc-account-button:hover {
+  border-color: var(--primary);
+  background: var(--tint-blue);
+}
+
+.mc-public-account-actions .mc-account-avatar {
+  width: 34px;
+  height: 34px;
+  background: var(--tint-green);
+  color: var(--green);
+}
+
+.mc-public-account-actions .mc-account-dropdown {
+  top: calc(100% + 9px);
+}
+
+.mc-public-menu-toggle {
+  display: none;
+}
+
+/* Tombol autentikasi hanya muncul di menu mobile */
+.mc-public-nav-links .nav-mobile-auth {
+  display: none;
+}
+
+/* TABLET DAN MOBILE */
+@media (max-width: 1000px) {
+  .mc-public-navbar {
+    height: 72px;
+    min-height: 72px;
+  }
+
+  .mc-public-nav-inner {
+    width: calc(100% - 40px);
+    gap: 12px;
+  }
+
+  .mc-public-menu-toggle {
+    display: inline-flex;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: var(--white);
+    color: var(--body);
+    cursor: pointer;
+  }
+
+  .mc-public-menu-toggle:hover {
+    background: var(--tint-green);
+    color: var(--green);
+  }
+
+  .mc-public-account-actions {
+    display: none;
+  }
+
+  .mc-public-nav-links {
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    right: 0;
+    z-index: 121;
+    display: none;
+    width: 100%;
+    max-height: calc(100vh - 72px);
+    overflow-y: auto;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 5px;
+    padding: 13px 4% 17px;
+    border-bottom: 1px solid var(--border);
+    background: var(--white);
+    box-shadow: 0 12px 20px rgba(23, 59, 50, .09);
+  }
+
+  .mc-public-nav-links.nav-open {
+    display: flex;
+  }
+
+  .mc-public-nav-links > a {
+    justify-content: flex-start;
+    width: 100%;
+    min-height: 44px;
+    box-sizing: border-box;
+    padding: 0 13px;
+    font-size: 12px;
+  }
+
+  .mc-public-nav-links .nav-mobile-auth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 44px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    padding: 10px 14px;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 750;
+    cursor: pointer;
+  }
+
+  .mc-public-nav-links .nav-mobile-login {
+    border: 1px solid var(--border);
+    background: var(--white);
+    color: var(--navy);
+  }
+
+  .mc-public-nav-links .nav-mobile-register {
+    border: 1px solid var(--green);
+    background: var(--green);
+    color: var(--white);
+  }
+}
+
+/* HP */
+@media (max-width: 480px) {
+  .mc-public-navbar {
+    height: 68px;
+    min-height: 68px;
+  }
+
+  .mc-public-nav-inner {
+    width: calc(100% - 32px);
+    gap: 8px;
+  }
+
+  .mc-public-brand {
+    gap: 8px;
+  }
+
+  .mc-public-brand .brand-logo {
+    width: 35px;
+    height: 35px;
+    flex-basis: 35px;
+  }
+
+  .mc-public-brand .brand-name {
+    font-size: 14px;
+    letter-spacing: -.2px;
+  }
+
+  .mc-public-brand .brand-name small {
+    font-size: 6px;
+    letter-spacing: 1px;
+  }
+
+  .mc-public-menu-toggle {
+    width: 39px;
+    height: 39px;
+    flex-basis: 39px;
+  }
+
+  .mc-public-nav-links {
+    max-height: calc(100vh - 68px);
+  }
+}
+
+@media (max-width: 360px) {
+  .mc-public-nav-inner {
+    width: calc(100% - 24px);
+  }
+
+  .mc-public-brand {
+    gap: 6px;
+  }
+
+  .mc-public-brand .brand-name {
+    font-size: 13px;
+  }
+
+  .mc-public-brand .brand-name small {
+    font-size: 5.5px;
+    letter-spacing: .8px;
+  }
+}
+/* =========================================================
+   MAMRAS CLEAN - NAVBAR ICON TEXT ALIGNMENT
+   ========================================================= */
+
+.navbar .mc-public-nav-links > a {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 42px;
+  padding: 0 13px;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.navbar .mc-public-nav-links > a svg {
+  display: block;
+  flex: 0 0 17px;
+  width: 17px;
+  height: 17px;
+  margin: 0;
+}
+
+.navbar .mc-public-nav-links > a span {
+  display: inline-block;
+  line-height: 1.2;
+  margin: 0;
+}
+
+@media (max-width: 1000px) {
+  .navbar .mc-public-nav-links > a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 46px;
+    padding: 0 15px;
+    text-align: left;
+  }
+}
